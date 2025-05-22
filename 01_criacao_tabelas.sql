@@ -1,0 +1,21 @@
+USE Cafe_Aurora;
+GO
+
+CREATE TABLE Clientes (
+ID INT PRIMARY KEY IDENTITY (1,1),
+Nome VARCHAR (100),
+Email VARCHAR (100),
+Cidade VARCHAR (100),
+Plano VARCHAR (100),
+ValorPlano DECIMAL (10,2)
+);
+GO
+
+CREATE TABLE Pedidos (
+IDPedido INT PRIMARY KEY IDENTITY (1,1),
+IDCliente INT,
+DataPedido DATE,
+ValorPedido DECIMAL (10,2)
+CONSTRAINT FK_ClientePedido FOREIGN KEY (IDCliente) REFERENCES Clientes(ID)
+);
+GO
